@@ -93,7 +93,8 @@ function DuDuyuru() {
                     {duyurular.map((item, index) => (
                         <li key={index} className="nav-item col-6 col-md-4 col-lg-2">
                             <a
-                                className={`nav-link ${duyuruFilter === item.filters ? "active" : ""}`}
+                                className={`nav-link ${duyuruFilter === item.filters ? "active" : ""
+                                    }`}
                                 data-bs-toggle="tab"
                                 data-bs-target="#tab-1"
                                 onClick={() => setDuyuruFilter(item.filters)}
@@ -108,7 +109,6 @@ function DuDuyuru() {
                 {alanlar.map((item, index) => (
                     <div className="tab-content" id={`tab-${index + 1}`}>
                         <div className="tab-pane active show">
-
                             <div className="row gy-4" key={index}>
                                 {duyuruFilter === `${item.filters}` && (
                                     <AllDuyuru
@@ -120,7 +120,6 @@ function DuDuyuru() {
                                     />
                                 )}
                             </div>
-
                         </div>
                     </div>
                 ))}

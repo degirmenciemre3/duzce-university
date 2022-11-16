@@ -1,12 +1,13 @@
 import React from 'react'
-
+import "./loading.css"
 function Loading() {
-    return (
-        <h1>
-            Loading...
+    return <div className="loading">
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
+        <div className="dot"></div>
 
-        </h1>
-    )
+    </div>
 }
 
 export default Loading
