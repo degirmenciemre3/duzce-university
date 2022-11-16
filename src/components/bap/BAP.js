@@ -38,7 +38,7 @@ function BAP() {
 
         <section id="facts" className="facts">
 
-            <div id="BAP" className="container" data-aos="fade-up">
+            <div id="bap" className="container" data-aos="fade-up">
                 <div className="section-title">
                     <h2>Bilimsel Araştırma Projeleri</h2>
                 </div>

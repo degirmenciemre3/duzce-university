@@ -9,11 +9,14 @@ import "./assests/vendor/boxicons/css/boxicons.min.css"
 import "./assests/vendor/glightbox/css/glightbox.min.css"
 import "./assests/vendor/remixicon/remixicon.css"
 import "./assests/vendor/swiper/swiper-bundle.min.css"
+import { BrowserRouter } from 'react-router-dom';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.Fragment>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.Fragment>
 );
 

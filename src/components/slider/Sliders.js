@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import "./announcement.css"
+import "../announcement/announcement.css"
 import SwiperCore, { Navigation, Pagination, Scrollbar, A11y } from 'swiper';
 
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -15,53 +15,11 @@ import 'swiper/css';
 import axios from 'axios';
 import { announcementURL } from '../apis/api';
 import Loading from '../loading/Loading';
-
-function Announcement() {
-    const [post, setPost] = useState([]);
-    const [loading, setLoading] = useState(true)
-
-    useEffect(() => {
-
-        axios.get("https://duzceuniversitywebapi.azurewebsites.net/api/duyurular/").then((res) => {
-            setPost(res.data);
-        })
-        setLoading(false);
-
-    }, []);
-
-    console.log(post);
-
-
-    SwiperCore.use([Navigation, Pagination, Scrollbar, A11y])
-    return <section id='duyuruslide' className='container testimonials'>
-        <div className="section-title">
-            <h2>Duyurular</h2>
-        </div>
-
-        <Swiper
-            breakpoints={{
-                // when window width is >= 640px
-                640: {
-                    width: 640,
-                    slidesPerView: 1,
-
-                },
-                // when window width is >= 768px
-                768: {
-                    width: 768,
-                    slidesPerView: 2,
-                },
-            }}
-            id="main"
-            width="480"
-            navigation
-            pagination={{ clickable: true }}
-            scrollbar={{ draggable: true }}
-            spaceBetween={5}
-            slidesPerView={1}
-        >
-            {loading & <Loading />}:
-            {
+function Sliders({ post }) {
+    console.log("postpost:", post);
+    return (
+        <div>
+            {post ?
                 post.map((item, index) => (
                     <SwiperSlide key={`slide-${index}`} tag="li" style={{ listStyle: 'none' }}>
                         <div className="post">
@@ -91,10 +49,10 @@ function Announcement() {
                                                 <ul>
 
                                                     <li>
-                                                        1
+                                                        {item.tag[1]}
                                                     </li>
                                                     <li>
-                                                        2
+                                                        {item.tag[0]}
                                                     </li>
                                                 </ul>
                                             </div>
@@ -105,32 +63,9 @@ function Announcement() {
                             </div>
                         </div>
                     </SwiperSlide>
-                ))}
-        </Swiper>
-
-
-
-        ...
-
-
-    </section>
-
+                )) : <h1>yok</h1>}
+        </div>
+    )
 }
 
-export default Announcement
-
-/**
- //SLİDE PUSH THEN 10
- for (let i = 0; i < 10; i += 1) {
-        slides.push(
-            <SwiperSlide key={`slide-${i}`} tag="li" style={{ listStyle: 'none' }}>
-                <img
-                    style={{ width: '100%' }}
-                    src={`https://picsum.photos/id/${i + 1}/500/300`}
-                    alt={`Slide ${i}`}
-                />
-            </SwiperSlide>
-        );
-    }
-
- */
+export default Sliders
