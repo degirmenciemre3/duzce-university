@@ -1,5 +1,4 @@
 import React from "react";
-import Loading from "../loading/Loading";
 import "./our-university.css";
 function OurUniversity() {
     const birimler = [
@@ -30,7 +29,7 @@ function OurUniversity() {
     const history = "Üniversitemiz"
     return (
         <section id="resume" className="resume">
-            <Loading loadingTitle={history} />
+
             <div className="container" data-aos="fade-up">
                 <div className="section-title">
                     <h2>ÜNİVERSİTEMİZ</h2>
