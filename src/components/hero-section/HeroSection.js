@@ -36,7 +36,7 @@ function HeroSection() {
                     ))}
                 </div>
             </div>
-            <a className="yukari" href="#">
+            <a className="yukari" href="/">
                 <i class="bi bi-arrow-up-circle"></i>{" "}
             </a>
         </section>
