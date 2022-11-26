@@ -14,7 +14,9 @@ function Cta() {
                         Quisquam, ipsam quibusdam,
                         autem facilis nemo explicabo ab temporibus qui consequatur praesentium
                         voluptas, aut molestias totam repellat!</p>
-                    <a className="cta-btn align-self-start" href="#">Detaylar</a>
+                    <a className="cta-btn align-self-start"
+                        rel="noreferrer"
+                        href="/duyuru">Detaylar</a>
                 </div>
 
                 <div className="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
