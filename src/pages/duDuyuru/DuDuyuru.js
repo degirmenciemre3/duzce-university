@@ -98,6 +98,7 @@ function DuDuyuru() {
                                 data-bs-toggle="tab"
                                 data-bs-target="#tab-1"
                                 onClick={() => setDuyuruFilter(item.filters)}
+                                href="/"
                             >
                                 {console.log(duyuruFilter)}
                                 <i className={`${item.icn}`}></i>
