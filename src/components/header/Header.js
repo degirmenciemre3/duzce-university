@@ -1,25 +1,61 @@
 import { useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 import "./header.css"
 
 const Header = () => {
     const navRef = useRef();
+    const navigate = useNavigate();
 
     const showNavbar = () => {
         navRef.current.classList.toggle("responsive_nav");
+
     };
+
+    const kisayol = [
+        {
+            name: "Duyurular",
+            link: "/duyuru"
+        },
+        {
+            name: "Yayınlar",
+            link: "/yayinlar"
+        },
+        {
+            name: "Personel",
+            link: "/personel"
+        },
+        {
+            name: "Öğrenci",
+            link: "/ogrenci"
+        },
+        {
+            name: "Hastane",
+            link: "/hastane"
+        },
+        {
+            name: "Teknopark",
+            link: "/teknopark"
+        },
+    ]
 
     return (
         <header>
-            <a href="/" className="active">
+            <p onClick={() => navigate(`/`)} className="active">
                 <img width="120px" src='https://sosyalsorumluluk.duzce.edu.tr/Content/Images/logo.png' alt='' />
-            </a>
+            </p>
             <nav ref={navRef}>
-                <a href="#bap">BAP</a>
-                <a href="#duyuruslide">Duyurular</a>
-                <a href="#universitemiz">Üniversitemiz</a>
-                <a href="#contact">Contact</a>
+                {kisayol.map((item, index) => (
+                    <p
+                        key={index}
+                        onClick={() => navigate(`${item.link}`)}
+                    >
+                        {item.name}
+                    </p>
+                ))}
+
+
                 <button
                     className="nav-btn nav-close-btn"
                     onClick={showNavbar}>
