@@ -1,0 +1,1 @@
+export const announcementURL = "https://duzceuniversitywebapi.azurewebsites.net/api/duyurular/";
