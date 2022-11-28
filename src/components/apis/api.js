@@ -1,1 +1,1 @@
-export const announcementURL = "https://duzceuniversitywebapi.azurewebsites.net/api/duyurular/";
+export const announcementURL = "https://duzceuniversitywebapi.azurewebsites.net/api/Duyurular/DuyurularGet";
