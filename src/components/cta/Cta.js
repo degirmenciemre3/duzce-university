@@ -2,7 +2,7 @@ import React from 'react'
 import "./cta.css"
 
 function Cta() {
-    return <section id="cta" className="cta mt-5">
+    return <section id="cta" className="cta">
         <div id='About' className="container" data-aos="zoom-out">
 
             <div className="row g-5">
@@ -21,7 +21,7 @@ function Cta() {
 
                 <div className="col-lg-4 col-md-6 order-first order-md-last d-flex align-items-center">
                     <div className="img">
-                        <img src="https://www.duzcepusula.com/images/haberler/2022/04/duzce-universitesi-atom-as-yi-kurdu.jpg" alt="" className="img-fluid" />
+                        <img src="https://www.duzcepusula.com/images/haberler/2022/04/duzce-universitesi-atom-as-yi-kurdu.jpg" alt="" className="img-fluid m-0" />
                     </div>
                 </div>
 

@@ -43,7 +43,7 @@ function BAP() {
                     <h2>Bilimsel Araştırma Projeleri</h2>
                 </div>
 
-                <div className="row">
+                <div className="row pt-5 mt-5">
                     {bap.map((item, index) => (
                         <div
                             key={index}
