@@ -26,7 +26,7 @@ function OurUniversity() {
                 "1986 yılında Yıldız Teknik Üniversitesi Kocaeli Müh. Fak. Mak. Müh. ve 1991 yılında  Yıldız Teknik Üniversitesi  F.B.E.  Mak. Y. Müh. olarak mezun oldu. 1986-1987 ve 1989-1990 yılları arasında Türkiye Gemi Sanayi A.Ş. Pendik-Sulzer Motor Fabrikası'nda Mak. Müh. olarak çalıştı. 1988-1989 tarihleri arasında Dz.K.K. Gemi Onarım Şubesi'nde Makine Asteğmen olarak askerlik görevini ifa etti. ",
         },
     ];
-    const history = "Üniversitemiz"
+
     return (
         <section id="resume" className="resume">
 
