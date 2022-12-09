@@ -1,4 +1,5 @@
 import React from 'react'
+import Home from '../pages/home/Home'
 import Announcement from './announcement/Announcement'
 import BAP from './bap/BAP'
 import CallToVideo from './call-to-video/CallToVideo'
@@ -9,15 +10,15 @@ import OurUniversity from './our-university/OurUniversity'
 
 function Layout() {
     return (
-        <div>
-            <HeroSection />
+        <Home>
+            <HeroSection/>
             <BAP />
             <OurUniversity />
             <Cta />
             <CallToVideo />
             <Announcement />
             <Contact />
-        </div>
+        </Home>
     )
 }
 

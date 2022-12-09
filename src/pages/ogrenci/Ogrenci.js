@@ -1,11 +1,13 @@
 import React from 'react'
+import Home from '../home/Home'
 
 function Ogrenci() {
     return (
+        <Home>
         <section>
-            Ogrenci
-            Ogrenci
+            Öğrenci
         </section>
+        </Home>
     )
 }
 

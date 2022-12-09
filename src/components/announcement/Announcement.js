@@ -26,7 +26,6 @@ function Announcement() {
         });
     }, []);
 
-    const loadingTitle = "Duyurular";
     console.log(post);
     console.log(loading);
 
@@ -36,7 +35,7 @@ function Announcement() {
             <div className="section-title">
                 <h2>Duyurular</h2>
             </div>
-            {loading ? <Loading loadingTitle={loadingTitle} /> : <Slider result={post} />}
+            {loading ? <Loading /> : <Slider result={post} />}
         </section>
     );
 }
