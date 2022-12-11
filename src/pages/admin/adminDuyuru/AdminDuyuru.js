@@ -21,11 +21,11 @@ const AdminDuyuru = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      axios.get(AdminDuyuruApi).then((res) => {
-          setDuyurular(res.data);
-          setLoading(false);
-        
-      });
+    axios.get(AdminDuyuruApi).then((res) => {
+      setDuyurular(res.data);
+      setLoading(false);
+
+    });
   }, []);
   console.log(duyurular);
 
@@ -33,7 +33,7 @@ const AdminDuyuru = () => {
     <Grid gap={6} mx="auto">
       <AdminHeader title={"Admin Duyuru"} />
       <Grid m={5} gap={3}>
-        
+
         <Flex
           bg={"twitter.500"}
           borderRadius="8"
@@ -80,7 +80,7 @@ const AdminDuyuru = () => {
           </Box>
         </Flex>
         {
-          loading ? <Loading/> : duyurular.map((duyuru,index) => (
+          loading ? <Loading /> : duyurular.map((duyuru, index) => (
             <Flex>
               <Flex
                 marginRight={2}
@@ -96,25 +96,25 @@ const AdminDuyuru = () => {
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
 
-                
+
               >
-                
-                
+
+
               </Flex>
-          <AdminDuyurular
-          title={duyuru.title}
-          description={duyuru.description}
-          date={duyuru.date}
-          
-          id={duyuru.id}
-          key={index}
-          category={duyuru.category}
-          
-          />
-        </Flex>
+              <AdminDuyurular
+                title={duyuru.title}
+                description={duyuru.description}
+                date={duyuru.date}
+
+                id={duyuru.id}
+                key={index}
+                category={duyuru.category}
+
+              />
+            </Flex>
           ))
         }
-        
+
       </Grid>
     </Grid>
   );

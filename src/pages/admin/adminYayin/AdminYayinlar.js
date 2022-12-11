@@ -1,14 +1,26 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
+import { AdminYayinApi } from "../../../components/apis/api";
 
 
-const AdminYayinlar = ({title,description,date,id,key,category}) => {
+const AdminYayinlar = ({ title, description, date, id, key, category }) => {
 
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+
+  const handleDelete = () => {
+    fetch(`${AdminYayinApi}/${id}`, {
+      method: "DELETE",
+    }).then((res) => {
+      if (res.ok) {
+        alert("Duyuru Silindi");
+        window.location.reload()
+      }
+    });
+  }
 
   return (
     <Flex
-        key={key}
+      key={key}
       bg={"facebook.400"}
       borderRadius="8"
       w="100%"
@@ -24,25 +36,25 @@ const AdminYayinlar = ({title,description,date,id,key,category}) => {
         w="100%"
       >
         <Flex
-        color={"white"}
-        flex={1} flexDirection="column" gap={2} m={2}>
+          color={"white"}
+          flex={1} flexDirection="column" gap={2} m={2}>
           <Text>
-            <strong style={{marginRight:"5px"}}>Title:</strong>
+            <strong style={{ marginRight: "5px" }}>Title:</strong>
             {title}
           </Text>
           <Text>
-            <strong style={{marginRight:"5px"}}>Description:</strong>
+            <strong style={{ marginRight: "5px" }}>Description:</strong>
             {description}
           </Text>
           <Text>
-            <strong style={{marginRight:"5px"}}>category:</strong>
+            <strong style={{ marginRight: "5px" }}>category:</strong>
             {category}
           </Text>
           <Text>
-            <strong style={{marginRight:"5px"}}>Date:</strong>
+            <strong style={{ marginRight: "5px" }}>Date:</strong>
             {date}
           </Text>
-          
+
 
         </Flex>
       </Box>
@@ -53,14 +65,14 @@ const AdminYayinlar = ({title,description,date,id,key,category}) => {
         h={"100%"}
       >
         <Flex flexDirection="column" gap={2} m={5}>
-          <Button 
-           
-          bg={"red.400"} color="white" _hover={{ bg: "red.500" }}>
+          <Button
+            onClick={() => handleDelete(id)}
+            bg={"red.400"} color="white" _hover={{ bg: "red.500" }}>
             Sil
           </Button>
-          <Button 
-           onClick={() => navigate(`/admin/yayin/guncelle/${id}`)}
-          bg={"green.400"} color="white" _hover={{ bg: "green.500" }}>
+          <Button
+            onClick={() => navigate(`/admin/yayin/guncelle/${id}`)}
+            bg={"green.400"} color="white" _hover={{ bg: "green.500" }}>
             Güncelle
           </Button>
         </Flex>

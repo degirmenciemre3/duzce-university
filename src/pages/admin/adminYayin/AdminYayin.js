@@ -11,7 +11,7 @@ import {
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import {  AdminYayinApi } from "../../../components/apis/api";
+import { AdminYayinApi } from "../../../components/apis/api";
 import Loading from "../../../components/loading/Loading";
 import AdminHeader from "../admin-header/AdminHeader";
 import AdminYayinlar from "./AdminYayinlar";
@@ -23,10 +23,10 @@ const AdminYayin = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-      axios.get(AdminYayinApi).then((res) => {
-          setYayinlar(res.data);
-          setLoading(false);
-      });
+    axios.get(AdminYayinApi).then((res) => {
+      setYayinlar(res.data);
+      setLoading(false);
+    });
   }, []);
   //console.log(yayinlar);
 
@@ -34,7 +34,7 @@ const AdminYayin = () => {
     <Grid gap={6} mx="auto">
       <AdminHeader title={"Admin Yayın"} />
       <Grid m={5} gap={3}>
-        
+
         <Flex
           bg={"facebook.500"}
           borderRadius="8"
@@ -81,12 +81,12 @@ const AdminYayin = () => {
           </Box>
         </Flex>
         {
-          loading ? <Loading/> : yayinlar.map((yayin,index) => (
+          loading ? <Loading /> : yayinlar.map((yayin, index) => (
             <Flex>
               <Flex
-              key={yayin.id}
+                key={yayin.id}
                 marginRight={2}
-           
+
                 bg={"twitter.400"}
                 borderRadius="8"
                 w="20%"
@@ -94,25 +94,28 @@ const AdminYayin = () => {
                 alignItems={"center"}
                 p={5}
                 backgroundImage={yayin.imgUrl}
-                
+                backgroundSize="cover"
+                backgroundPosition="center"
+                backgroundRepeat="no-repeat"
+
               >
-                
-                
+
+
               </Flex>
-          <AdminYayinlar
-          title={yayin.title}
-          description={yayin.description}
-          date={yayin.date}
-          
-          id={yayin.id}
-          key={index}
-          category={yayin.category}
-          
-          />
-        </Flex>
+              <AdminYayinlar
+                title={yayin.title}
+                description={yayin.description}
+                date={yayin.date}
+
+                id={yayin.id}
+                key={index}
+                category={yayin.category}
+
+              />
+            </Flex>
           ))
         }
-        
+
       </Grid>
     </Grid>
   )
