@@ -1,9 +1,12 @@
 import { Button, Flex, Image, Text } from '@chakra-ui/react'
 import React from 'react'
+import { useNavigate } from 'react-router-dom';
 
-const YayinCard = ({index,imgUrl,name,desc,category}) => {
-  return   <Flex
-  key={index}
+const YayinCard = ({ index, imgUrl, name, desc, category, date, id }) => {
+  //console.log(id);
+  const navigate = useNavigate();
+  return <Flex
+    key={index}
     flexDirection="column"
     backgroundColor="white"
     borderRadius="8px"
@@ -20,7 +23,7 @@ const YayinCard = ({index,imgUrl,name,desc,category}) => {
     <Flex flexDirection="column" padding="24px" gap="16px">
       <Flex gap="8px" flexDirection="column">
         <Flex
-          background="purple.50"
+          background="blue.50"
           width="fit-content"
           padding="8px"
           borderRadius="full"
@@ -28,7 +31,7 @@ const YayinCard = ({index,imgUrl,name,desc,category}) => {
           <Text
             fontSize="14px"
             fontWeight="bold"
-            color="purple.500"
+            color="blue.500"
           >
             {category}
           </Text>
@@ -38,17 +41,23 @@ const YayinCard = ({index,imgUrl,name,desc,category}) => {
             fontSize="24px"
             fontWeight="bold"
             color="gray.900"
+
           >
             {name}
           </Text>
-          <Text fontSize="14px" color="gray.500" noOfLines={3}>
+          <Text maxWidth={20} fontSize="14px" color="gray.500" noOfLines={3}>
             {desc}
+          </Text>
+          <Text fontSize="10px" color="gray.600" noOfLines={3}>
+            {date}
           </Text>
         </Flex>
       </Flex>
 
       <Flex flexDirection="column" gap="8px">
-        <Button color="purple.500" backgroundColor="purple.50">
+        <Button
+          onClick={() => navigate(`/yayinlar/detay/${id}`)}
+          color="blue.500" backgroundColor="blue.50">
           More
         </Button>
       </Flex>

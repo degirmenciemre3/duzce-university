@@ -14,11 +14,12 @@ import Login from '../pages/login/Login'
 import Ogrenci from '../pages/ogrenci/Ogrenci'
 import Personel from '../pages/personel/Personel'
 import Yayin from '../pages/yayin/Yayin'
+import YayinDetay from '../pages/yayin/YayinDetay'
 
 const Routers = () => {
   return (
     <>
-        <Routes>            
+      <Routes>
         <Route path="/" element={<Layout />} />
         <Route path="duyuru" element={<DuDuyuru />} />
         <Route path="yayinlar" element={<Yayin />} />
@@ -33,7 +34,8 @@ const Routers = () => {
         <Route path="admin/duyuru/guncelle/:id" element={<UpdateDuyuru />} />
         <Route path="/admin/yayin/guncelle/:id" element={<UpdateYayin />} />
         <Route path='/admin/yayin/ekle' element={<AddYayin />} />
-        </Routes>
+        <Route path="/yayinlar/detay/:id" element={<YayinDetay />} />
+      </Routes>
 
     </>
   )

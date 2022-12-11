@@ -10,7 +10,7 @@ import "swiper/css/scrollbar";
 import "swiper/css";
 
 import axios from "axios";
-import { announcementURL } from "../apis/api";
+import { AdminDuyuruApi } from "../apis/api";
 import Loading from "../loading/Loading";
 import Slider from "./Slider";
 
@@ -20,14 +20,13 @@ function Announcement() {
     console.log(loading);
 
     useEffect(() => {
-        axios.get(announcementURL).then((res) => {
+        axios.get(AdminDuyuruApi).then((res) => {
             setPost(res.data);
             setLoading(false);
         });
     }, []);
 
-    console.log(post);
-    console.log(loading);
+
 
     SwiperCore.use([Navigation, Pagination, Scrollbar, A11y]);
     return (
