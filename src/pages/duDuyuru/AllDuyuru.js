@@ -11,7 +11,7 @@ function AllDuyuru({ name, desc, img, icn, index }) {
             className="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100"
         >
             <div className="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src={`${img}`} alt="" class="img-fluid" />
+                <img src={`${img}`} alt="" className="img-fluid" />
             </div>
 
             <h3>{name} </h3>
@@ -27,7 +27,7 @@ function AllDuyuru({ name, desc, img, icn, index }) {
                 {desc} {desc}
             </p>
             <div className="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src={`${img}`} alt="" class="img-fluid" />
+                <img src={`${img}`} alt="" className="img-fluid" />
             </div>
 
         </div>
