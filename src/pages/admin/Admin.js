@@ -1,6 +1,7 @@
 import { Box, Flex, Image, Text } from "@chakra-ui/react";
 import React, { useState } from "react";
 import AdminDuyuru from "./adminDuyuru/AdminDuyuru";
+import AdminOgrenci from "./adminOgrenci/AdminOgrenci";
 import AdminYayin from "./adminYayin/AdminYayin";
 
 const Admin = () => {
@@ -27,7 +28,7 @@ const Admin = () => {
       name: "Çıkış",
       link: "/login",
     },
-    
+
   ];
   return (
     <>
@@ -60,19 +61,19 @@ const Admin = () => {
             </Box>
           ))}
 
-              
+
 
         </Box>
 
         <Box m={5}
-        w={"100%"}
+          w={"100%"}
         >
           {adminText === "Duyuru" ? (
             <AdminDuyuru />
           ) : adminText === "Yayın" ? (
             <AdminYayin />
           ) : adminText === "Ogrenci" ? (
-            <AdminDuyuru />
+            <AdminOgrenci />
           ) : null}
         </Box>
       </Flex>
