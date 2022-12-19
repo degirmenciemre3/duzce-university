@@ -2,7 +2,6 @@ import { Text } from '@chakra-ui/react';
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { AdminOgrenciApi } from '../../../components/apis/api';
-import Loading from '../../../components/loading/Loading';
 
 const OgrenciBilgileri = ({ ogrenciId }) => {
     const [ogrenci, setOgrenci] = useState([])
