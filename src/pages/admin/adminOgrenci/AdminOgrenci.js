@@ -3,11 +3,13 @@ import { Avatar, Box, Button, Flex, Input, InputGroup, InputRightElement, Text }
 import axios from 'axios'
 import React, { useState } from 'react'
 import { useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { AdminOgrenciApi } from '../../../components/apis/api'
 import AdminHeader from '../admin-header/AdminHeader'
 import OgrenciBilgileri from './OgrenciBilgileri'
 
 const AdminOgrenci = () => {
+  const navigate = useNavigate()
 
   const [ogrenci, setOgrenci] = useState([])
   const [loading, setLoading] = useState(true);
@@ -81,7 +83,7 @@ const AdminOgrenci = () => {
                 borderRadius="8"
                 variant="solid"
                 _hover={{ bg: "blue.600", color: "white" }}
-                onClick={() => console.log("basıldı")}
+                onClick={() => navigate("/admin/ogrenci/ekle")}
               >
                 Öğrenci Ekle
               </Button>
@@ -106,7 +108,7 @@ const AdminOgrenci = () => {
               borderRadius={8}
               borderColor="gray.200"
               width="100%"
-              maxHeight="500px"
+              maxHeight="700px"
               overflowY="scroll"
               padding={5}
 

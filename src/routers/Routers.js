@@ -6,6 +6,7 @@ import AddDuyuru from '../pages/admin/adminDuyuru/AddDuyuru'
 import AdminDuyuru from '../pages/admin/adminDuyuru/AdminDuyuru'
 import UpdateDuyuru from '../pages/admin/adminDuyuru/UpdateDuyuru'
 import AdminOgrenci from '../pages/admin/adminOgrenci/AdminOgrenci'
+import AdminOgrenciEkle from '../pages/admin/adminOgrenci/AdminOgrenciEkle'
 import AddYayin from '../pages/admin/adminYayin/AddYayin'
 import AdminYayin from '../pages/admin/adminYayin/AdminYayin'
 import UpdateYayin from '../pages/admin/adminYayin/UpdateYayin'
@@ -35,6 +36,7 @@ const Routers = () => {
         <Route path="/admin/yayin/guncelle/:id" element={<UpdateYayin />} />
         <Route path='/admin/yayin/ekle' element={<AddYayin />} />
         <Route path="/yayinlar/detay/:id" element={<YayinDetay />} />
+        <Route path="/admin/ogrenci/ekle" element={<AdminOgrenciEkle />} />
       </Routes>
 
     </>
