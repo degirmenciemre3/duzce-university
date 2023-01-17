@@ -12,6 +12,7 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { AdminDuyuruApi } from "../../../components/apis/api";
+//import { AdminDuyuruApi } from "../../../components/apis/api";
 import Loading from "../../../components/loading/Loading";
 import AdminHeader from "../admin-header/AdminHeader";
 import AdminDuyurular from "./AdminDuyurular";
@@ -24,7 +25,6 @@ const AdminDuyuru = () => {
     axios.get(AdminDuyuruApi).then((res) => {
       setDuyurular(res.data);
       setLoading(false);
-
     });
   }, []);
   console.log(duyurular);
@@ -33,11 +33,11 @@ const AdminDuyuru = () => {
     <Grid gap={6} mx="auto">
       <AdminHeader title={"Admin Duyuru"} />
       <Grid m={5} gap={3}>
-
         <Flex
           bg={"twitter.500"}
           borderRadius="8"
           w="100%"
+          h="100%"
           justifyContent={"space-between"}
           alignItems={"center"}
           p={5}
@@ -79,12 +79,14 @@ const AdminDuyuru = () => {
             </Button>
           </Box>
         </Flex>
-        {
-          loading ? <Loading /> : duyurular.map((duyuru, index) => (
+        {loading ? (
+          <Loading />
+        ) : (
+          duyurular.map((duyuru, index) => (
             <Flex>
               <Flex
                 marginRight={2}
-                key={duyuru.id}
+                key={index}
                 bg={"twitter.400"}
                 borderRadius="8"
                 w="20%"
@@ -95,26 +97,20 @@ const AdminDuyuru = () => {
                 backgroundSize="cover"
                 backgroundPosition="center"
                 backgroundRepeat="no-repeat"
-
-
-              >
-
-
-              </Flex>
+                minW={100}
+                minH={100}
+              ></Flex>
               <AdminDuyurular
                 title={duyuru.title}
                 description={duyuru.description}
                 date={duyuru.date}
-
                 id={duyuru.id}
                 key={index}
                 category={duyuru.category}
-
               />
             </Flex>
           ))
-        }
-
+        )}
       </Grid>
     </Grid>
   );

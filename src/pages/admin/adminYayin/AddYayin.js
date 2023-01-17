@@ -140,9 +140,9 @@ const AddYayin = () => {
                       onChange={formik.handleChange}
                       value={formik.values.category}
                       placeholder="Select category">
-                      <option>United Arab Emirates</option>
-                      <option>Nigeria</option>
-                      <option>Kanada</option>
+                      <option>BM</option>
+                    <option>EEM</option>
+                    <option>Doktor</option>
                     </Select>
                   </FormControl>
                   <FormControl isRequired marginBottom={"40px"} >

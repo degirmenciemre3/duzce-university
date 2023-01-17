@@ -17,7 +17,8 @@ const Login = () => {
 
   const Employee={
       userName: "",
-        password: "",
+      password: "",
+      returnUrl:"",
 }
 
     const formik = useFormik({
@@ -25,18 +26,18 @@ const Login = () => {
     onSubmit: (values) => {
         console.log(values);
         axios.post(AccountLogin, values).then((response) => {
-            console.log(response.data);
-            if (response.data.result===1) {
+            console.log(response);
+            if (response.status===200) {
                 alert("Başarılı");
-                navigate("/admin");
+                const token = response.data.token
+                localStorage.setItem("token", token);
+               navigate("/admin");
             } else {
                 alert("Kullanıcı adı veya şifre hatalı");
             }
         });
     },
 });
-
-  
 
   return (
     <Flex bg="gray.100" align="center" justify="center" h="100vh">

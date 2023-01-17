@@ -1,6 +1,7 @@
 import { Box, Button, Flex, Text } from "@chakra-ui/react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { AdminDuyuruApi } from "../../../components/apis/api";
+import {  AdminDuyuruApiDelete } from "../../../components/apis/api";
 
 
 
@@ -10,14 +11,32 @@ const AdminDuyurular = ({title,description,date,id,key,category}) => {
 
 
 const handelDelete = (id) => {
-    fetch(`${AdminDuyuruApi}/${id}`, {
-      method: "DELETE",
-    }).then((res) => {
-      if (res.ok) {
-        alert("Duyuru Silindi");
-        window.location.reload()
-      }
-    });
+  console.log(id,typeof(id));
+    axios.request({
+
+        method: "DELETE",
+        url: `${AdminDuyuruApiDelete}?id=${id}`,
+        headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json',
+            'Accept': 'application/json'
+        },
+    }).then((response) => {
+        console.log(response);
+        if (response.status === 200) {
+            alert("Başarılı");
+            //REFRESH
+            window.location.reload();
+        }
+        else {
+            alert("Başarısız");
+        }
+    }
+    ).catch((error) => {
+        console.log(error);
+    }
+    );
   };
 
 

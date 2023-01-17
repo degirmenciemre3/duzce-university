@@ -164,6 +164,11 @@ function Footer() {
                         <div className="col-lg-3 col-md-6 footer-links">
                             <h4>Diğer Servisler</h4>
                             <ul>
+                            <li>
+                                    <i className="bx bx-chevron-right"></i>{" "}
+                                    <span onClick={() => navigate(`/login`)}> Login</span>
+
+                                </li>
                                 <li>
                                     <i className="bx bx-chevron-right"></i>{" "}
                                     <span onClick={() => navigate(`/yayınlar`)}> DÜYayınlar</span>

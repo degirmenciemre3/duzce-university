@@ -12,28 +12,25 @@ import {
 import axios from "axios";
 import { useFormik } from "formik";
 import React, { useEffect, useState } from "react";
-import { useNavigate, useParams } from "react-router-dom";
-import { AdminDuyuruApi } from "../../../components/apis/api";
+import {  useNavigate, useParams } from "react-router-dom";
+import {  AdminDuyuruApiMock } from "../../../components/apis/api";
 import AdminHeader from "../admin-header/AdminHeader";
 
 const UpdateDuyuru = () => {
   const { id } = useParams();
   const [images, setImages] = useState("");
   const [duyurular, setDuyurular] = useState([]);
-  const navigate = useNavigate();
-  const _id = Math.floor(Math.random() * 1000);
-  console.log(_id);
+ const navigate = useNavigate();
   const DUYURU = {
     title: "",
     description: "",
     imgUrl: "",
     category: "",
     date: "",
-    id: "",
   };
 
   useEffect(() => {
-    axios.get(`${AdminDuyuruApi}/${id}`).then((res) => {
+    axios.get(`${AdminDuyuruApiMock}/${id}`).then((res) => {
       setDuyurular(res.data);
     });
   }, [id]);
@@ -42,10 +39,33 @@ const UpdateDuyuru = () => {
     initialValues: DUYURU,
 
     onSubmit: (values) => {
-      axios.put(`${AdminDuyuruApi}/${id}`, values).then((response) => {
-        alert("Duyuru Güncellendi");
-        navigate(-1);
-      });
+      console.log(values);
+      try {
+        axios.request({
+          method: "PUT",
+          url: `${AdminDuyuruApiMock}/${id}`,
+          data: values,
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+            'X-Requested-With': 'XMLHttpRequest',
+            'Content-Type': 'application/json',
+
+          },
+
+        }).then((res) => {  
+          console.log(res);
+          if (res.status === 200) {
+            alert("Başarılı");
+            navigate("/admin");
+          } else {
+            alert("Başarısız");
+          }
+
+
+        })
+      } catch (error) {
+        console.log(error);
+      }
     },
   });
 
@@ -143,15 +163,14 @@ const UpdateDuyuru = () => {
                   <FormControl isRequired marginBottom={"40px"}>
                     <FormLabel>Kategori</FormLabel>
                     <Select
-                      placeholder={duyurular.category}
                       id="category"
-                      name="category"
+                      name= {duyurular.category}
                       onChange={formik.handleChange}
                       value={formik.values.category}
                     >
-                      <option>United Arab Emirates</option>
-                      <option>Nigeria</option>
-                      <option>Kanada</option>
+                    <option>BM</option>
+                  <option>EEM</option>
+                  <option>Doktor</option>
                     </Select>
                   </FormControl>
                   <FormControl isRequired marginBottom={"40px"}>

@@ -1,11 +1,17 @@
-import { Box, Flex, Image, Text } from "@chakra-ui/react";
+import { Box, Button, Flex, Image, Text } from "@chakra-ui/react";
+import axios from "axios";
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom/dist";
+import { AccountLogout } from "../../components/apis/api";
+import AdminSirket from "./admin-sirket/AdminSirket";
+import AdminStaj from "./admin-staj/AdminStaj";
 import AdminDuyuru from "./adminDuyuru/AdminDuyuru";
 import AdminOgrenci from "./adminOgrenci/AdminOgrenci";
 import AdminYayin from "./adminYayin/AdminYayin";
 
 const Admin = () => {
   const [adminText, setAdminText] = useState("Duyuru");
+  const navigate=useNavigate();
 
   const adminYonlendir = [
     {
@@ -25,13 +31,34 @@ const Admin = () => {
     },
     {
       id: 4,
-      name: "Çıkış",
-      link: "/login",
+      name: "Şirketler",
+      link: "/admin/sirket",
     },
+    {
+      id: 5,
+      name: "Stajlar",
+      link: "/admin/staj",
+    }
+   
 
   ];
+
+  const admin = {userName: 'Admin', password: 'Secret123$', returnUrl: ''}
+  
+
+  const handleClick=()=>{
+    axios.post(AccountLogout, admin).then((response) => {
+      console.log(response);
+      //navigate("/login")
+    })
+  
+  }
   return (
     <>
+    {
+      localStorage.getItem("token")===null ? navigate("/ErrorPage") :
+
+ 
       <Flex bg="blue.100" w={"100%"} h={"100vh"} display={"flex"}>
         <Box display={"row"} maxWidth={300} backgroundColor={"white"}>
           <Image
@@ -43,7 +70,7 @@ const Admin = () => {
             <Box
               key={item.id}
               borderRadius="8"
-              margin={"15px"}
+              margin={"10px"}
               w="90%"
               h="90px"
               bg={adminText === item.name ? "blue.200" : "white"}
@@ -60,12 +87,33 @@ const Admin = () => {
               </Text>
             </Box>
           ))}
+          <Button
+            colorScheme="blue"
+            variant="outline"
+            margin={5}
+            w="45%"
+            h="45px"
+            boxShadow="lg"
+            _hover={{
+              backgroundColor: "blue.200",
+              color: "#434242",
+              cursor: "pointer",
+            }}
+            fontSize={"xl"}
+            fontWeight={"bold"}
+            textAlign={"center"}
+            onClick={handleClick}
+          >
+            Çıkış Yap
+          </Button>
+
 
 
 
         </Box>
 
-        <Box m={5}
+        <Box 
+          m={"10px"}
           w={"100%"}
         >
           {adminText === "Duyuru" ? (
@@ -74,9 +122,15 @@ const Admin = () => {
             <AdminYayin />
           ) : adminText === "Ogrenci" ? (
             <AdminOgrenci />
-          ) : null}
+          ) : adminText === "Şirketler" ? (
+            <AdminSirket />
+          ) : adminText === "Stajlar" ? (
+            <AdminStaj />
+          ) : null
+          }
         </Box>
       </Flex>
+         }
     </>
   );
 };

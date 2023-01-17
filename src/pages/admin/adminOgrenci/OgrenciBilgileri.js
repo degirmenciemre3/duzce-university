@@ -66,6 +66,7 @@ const OgrenciBilgileri = ({ ogrenciId }) => {
                             fontSize='md'
                             color='gray.800'
                             fontWeight={"normal"}
+                            noOfLines={9}
 
                         >
                             {ogrenci.tecrube}

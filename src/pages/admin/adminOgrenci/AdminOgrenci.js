@@ -5,6 +5,7 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { AdminOgrenciApi } from '../../../components/apis/api'
+import Loading from '../../../components/loading/Loading'
 import AdminHeader from '../admin-header/AdminHeader'
 import OgrenciBilgileri from './OgrenciBilgileri'
 
@@ -114,7 +115,7 @@ const AdminOgrenci = () => {
 
             >
               {
-                loading ? <div>Yükleniyor...</div> :
+                loading ? <Loading/>:
                   ogrenci.map((ogrenci) => (
                     <Box
                       bg={ogrenciId === ogrenci.id ? "blue.100" : "white"}

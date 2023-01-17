@@ -9,9 +9,11 @@ import "swiper/css/scrollbar";
 
 // Import Swiper styles
 import "swiper/css";
+import { useNavigate } from "react-router-dom/dist";
 
 function Slider(post) {
     console.log(post.result);
+    const navigate = useNavigate();
     return (
         <Swiper
             breakpoints={{
@@ -40,8 +42,15 @@ function Slider(post) {
                     tag="li"
                     style={{ listStyle: "none" }}
                 >
-                    <div className="post">
-                        <div className="header_post">
+                    <div className="post"
+                   onClick={() => {
+                          navigate(`/duyumlar/detay/${item.id}`);
+                    }
+                   }
+                    >
+                        <div className="header_post"
+                         
+                        >
                             <img src={item.imgUrl} alt={`slide-${index}`} />
                         </div>
 

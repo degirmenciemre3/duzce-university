@@ -26,13 +26,13 @@ const Header = () => {
         },
         {
             name: "Personel",
-            link: "/personel",
-            yenilink:false
+            link: "https://ebys.duzce.edu.tr/enVision/Login.aspx",
+            yenilink:true
         },
         {
             name: "Öğrenci",
-            link: "/ogrenci",
-            yenilink:false
+            link: "https://obs.duzce.edu.tr/",
+            yenilink:true
         },
         {
             name: "Hastane",

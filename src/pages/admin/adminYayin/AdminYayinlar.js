@@ -21,7 +21,7 @@ const AdminYayinlar = ({ title, description, date, id, key, category }) => {
   return (
     <Flex
       key={key}
-      bg={"facebook.400"}
+      bg={"white"}
       borderRadius="8"
       w="100%"
       justifyContent={"space-between"}
@@ -31,12 +31,12 @@ const AdminYayinlar = ({ title, description, date, id, key, category }) => {
     >
       <Box
         border={"2px"}
-        borderColor="whiteAlpha.800"
+        borderColor="facebook.500"
         borderRadius="8"
         w="100%"
       >
         <Flex
-          color={"white"}
+          color={"facebook.500"}
           flex={1} flexDirection="column" gap={2} m={2}>
           <Text>
             <strong style={{ marginRight: "5px" }}>Title:</strong>
@@ -60,7 +60,7 @@ const AdminYayinlar = ({ title, description, date, id, key, category }) => {
       </Box>
       <Box
         border={"2px"}
-        borderColor="whiteAlpha.800"
+        borderColor="facebook.800"
         borderRadius="8"
         h={"100%"}
       >
