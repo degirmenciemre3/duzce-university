@@ -16,29 +16,44 @@ const Header = () => {
     const kisayol = [
         {
             name: "Duyurular",
-            link: "/duyuru"
+            link: "/duyuru",
+            yenilink:false
         },
         {
             name: "Yayınlar",
-            link: "/yayinlar"
+            link: "/yayinlar",
+            yenilink:false
         },
         {
             name: "Personel",
-            link: "/personel"
+            link: "https://ebys.duzce.edu.tr/enVision/Login.aspx",
+            yenilink:true
         },
         {
             name: "Öğrenci",
-            link: "/ogrenci"
+            link: "https://obs.duzce.edu.tr/",
+            yenilink:true
         },
         {
             name: "Hastane",
-            link: "/hastane"
+            link: "https://hastane.duzce.edu.tr/",
+            yenilink:true
         },
         {
             name: "Teknopark",
-            link: "/teknopark"
+            link: "https://www.duzceteknopark.com/",
+            yenilink:true
         },
     ]
+
+const handleClick = (link,yenilink) => {
+    if(yenilink){
+        window.open(link, "_blank");
+    }else{
+        navigate(link);
+    }
+}
+
 
     return (
         <header>
@@ -49,7 +64,7 @@ const Header = () => {
                 {kisayol.map((item, index) => (
                     <p
                         key={index}
-                        onClick={() => navigate(`${item.link}`)}
+                        onClick={() => handleClick(item.link,item.yenilink)}
                     >
                         {item.name}
                     </p>

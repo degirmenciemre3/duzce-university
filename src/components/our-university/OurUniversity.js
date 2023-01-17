@@ -68,8 +68,8 @@ function OurUniversity() {
                                 <em> </em>
                             </p>
                             <ul>
-                                {birimler.map((item) => (
-                                    <li>{item}</li>
+                                {birimler.map((item,index) => (
+                                    <li key={index}>{item}</li>
                                 ))}
                             </ul>
                         </div>

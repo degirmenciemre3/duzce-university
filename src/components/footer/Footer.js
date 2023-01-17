@@ -125,10 +125,10 @@ function Footer() {
                         <div className="col-lg-3 col-md-6">
                             <div className="footer-info">
                                 <img
-                                    src="https://duzce-university.netlify.app/assets/img/d%C3%BCbeyazlogopng.png"
-                                    width="80px"
-                                    height="80px"
-                                    alt=""
+                                    src="https://cdn.duzce.edu.tr/File/GetFile/216e0157-c3b1-4cb4-b324-254c6e3e6cf8"
+                                    width="150rem"
+                                    height="100rem"
+                                    alt="duzce-logo"
                                 />
                                 <div className="social-links mt-3">
                                     <a href="/" className="twitter">
@@ -164,6 +164,11 @@ function Footer() {
                         <div className="col-lg-3 col-md-6 footer-links">
                             <h4>Diğer Servisler</h4>
                             <ul>
+                            <li>
+                                    <i className="bx bx-chevron-right"></i>{" "}
+                                    <span onClick={() => navigate(`/login`)}> Login</span>
+
+                                </li>
                                 <li>
                                     <i className="bx bx-chevron-right"></i>{" "}
                                     <span onClick={() => navigate(`/yayınlar`)}> DÜYayınlar</span>

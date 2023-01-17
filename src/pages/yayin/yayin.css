@@ -1,0 +1,12 @@
+button{
+    background-color:#D6BCFA;
+    border-radius: 8px;
+    width: 8rem;
+    height: 4rem;
+}
+.actives{
+    background-color:#9F7AEA;
+    color: aliceblue;
+    font-weight: bold;
+}
+

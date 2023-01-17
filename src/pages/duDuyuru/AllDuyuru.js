@@ -1,37 +1,80 @@
-import React from 'react'
-import "./duduyuru.css"
+import {
+  Button,
+  Card,
+  CardBody,
+  CardFooter,
+  Divider,
+  Flex,
+  Grid,
+  GridItem,
+  Heading,
+  Image,
+  Stack,
+  Text,
+} from "@chakra-ui/react";
+import React from "react";
+import { useNavigate } from "react-router-dom/dist";
+import "./duduyuru.css";
 
-function AllDuyuru({ name, desc, img, icn, index }) {
-    console.log("name:", name);
-    console.log("desc:", desc);
-    console.log("img:", img);
-    console.log("index:", index);
-    return (
-        <div
-            className="col-lg-8 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="100"
-        >
-            <div className="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src={`${img}`} alt="" class="img-fluid" />
-            </div>
-
-            <h3>{name} </h3>
-            <p className="fst-italic">
-                {desc}
-            </p>
-            <ul>
-                <li><i className={`${icn}`}></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat.</li>
-                <li><i className={`${icn}`}></i> Duis aute irure dolor in reprehenderit in voluptate velit.</li>
-                <li><i className={`${icn}`}></i> Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate trideta storacalaperda mastiro dolore eu fugiat nulla pariatur.</li>
-            </ul>
-            <p>
-                {desc} {desc}
-            </p>
-            <div className="col-lg-4 order-1 order-lg-2 text-center" data-aos="fade-up" data-aos-delay="200">
-                <img src={`${img}`} alt="" class="img-fluid" />
-            </div>
-
-        </div>
-    )
+function AllDuyuru({ duyuru }) {
+  const navigate = useNavigate();
+  return (
+    <Flex
+      flexDirection="row"
+      justifyContent="center"
+      margin={10}
+      padding="40px"
+      gap="8px"
+      className="ogrenciEkle"
+      alignItems={"center"}
+      borderWidth={1}
+      borderRadius={8}
+    >
+      <Grid templateColumns="repeat(3, 1fr)" gap={6} className="duyuruGrid">
+        {duyuru.map((duyuru) => (
+          <GridItem colSpan={1} className="duyuruGridItem">
+            <Card maxW="sm"
+            >
+              <CardBody>
+                <Image
+                  src={duyuru.imgUrl}
+                  alt="Green double couch with wooden legs"
+                  borderRadius="lg"
+                />
+                <Stack mt="6" spacing="3">
+                  <Heading size="md">{duyuru.title}</Heading>
+                  <Text noOfLines={4}>{duyuru.description}</Text>
+                  <Text
+                    color={"gray.500"}
+                    fontSize={"md"}
+                    backgroundColor={"blue.100"}
+                    p={2}
+                    borderRadius={"md"}
+                    width={"fit-content"}
+                  >
+                    {duyuru.category}
+                  </Text>
+                </Stack>
+              </CardBody>
+              <Divider />
+              <CardFooter>
+                <Button
+                  width={"100%"}
+                  variant="solid"
+                  colorScheme="blue"
+                  onClick={() => {
+                    navigate(`/duyurular/detay/${duyuru.id}`);
+                  }}
+                >
+                  Detay için tıklayınız
+                </Button>
+              </CardFooter>
+            </Card>
+          </GridItem>
+        ))}
+      </Grid>
+    </Flex>
+  );
 }
 
-export default AllDuyuru
+export default AllDuyuru;
