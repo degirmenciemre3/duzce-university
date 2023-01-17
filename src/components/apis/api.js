@@ -13,7 +13,5 @@ export const AccountLogout = "https://duzceuniversitywebapi20221227225156.azurew
 export const AdminDuyuruUpdate = "https://duzceuniversitywebapi20221227225156.azurewebsites.net/api/Duyuru/DuyuruUpdate";
 
 
-//
 export const AdminDuyuruApiMock ="https://63885fc3d94a7e5040998c96.mockapi.io/adminDuyuru";
-=======
->>>>>>> 179e8fa9ea9c6f5705db010fc17d90122110ce88
+
